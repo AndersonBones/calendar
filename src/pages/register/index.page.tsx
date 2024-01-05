@@ -41,24 +41,27 @@ export default function Register() {
 
   useEffect(() => {
     if (router.query.username) {
-      setValue('username', String(router.query.username))
+      setValue('username', String(router.query.username)) // get username from query and set username
     }
   }, [router.query?.username, setValue])
+
   const handleRegister = async (data: TRegister) => {
     try {
-      await api.post('/users',{
+      await api.post('/users',{ // request user route
         name: data.name,
         username: data.username
       })
 
 
-      await router.push('/register/connect-calendar')
+      await router.push('/register/connect-calendar') // redirect to connect calendar
 
     } catch (error) {
+
       if(error instanceof AxiosError && error?.response?.data?.message){
         alert(error?.response?.data?.message)
         return
       }
+
     }
   }
 
