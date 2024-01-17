@@ -9,6 +9,7 @@ import { getWeekDays } from '@/utils/get-week-days'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { convertTimeStrtoMinutes } from '@/utils/convert-time'
 import { api } from '@/lib/axios'
+import { useRouter } from 'next/router'
 
 
 
@@ -67,6 +68,7 @@ export default function TimeInterval() {
     })
 
     const intervals = watch("intervals") // monitora qualquer modificação no intervals
+    const router = useRouter()
 
     async function handleSetTimeIntervals(data: any) { // imprime os dados de intervals
         const {intervals} = data as TimeIntervalsFormOutput
@@ -75,14 +77,15 @@ export default function TimeInterval() {
 
 
         const {session} = time_data.data
-        console.log(session)
+        
+        await router.push("/register/update-profile")
     }
 
 
 
     const weekDays = getWeekDays() // obtem a ordem dos dias da semana
 
-
+    
     return (
         <Container>
             <Header>

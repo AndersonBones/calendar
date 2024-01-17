@@ -11,10 +11,10 @@ model User {
   id            String             @id @default(uuid())
   username      String             @unique
   name          String
-  bio           String?
   created_at    DateTime           @default(now())
   avatar_url    String?
   email         String?            @unique
+  bio           String?
   sessions      Session[]
   accounts      Account[]
   timeIntervals UserTimeInterval[]
