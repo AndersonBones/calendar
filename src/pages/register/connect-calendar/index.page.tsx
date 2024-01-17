@@ -19,7 +19,9 @@ export default function ConnectCalendar() {
         await signIn('google')
     }
 
-    console.log(session.data)
+    const handleNextStep = async()=>{
+        router.push('/register/time-intervals')
+    }
 
     return (
         <Container>
@@ -52,7 +54,7 @@ export default function ConnectCalendar() {
                         permissões de acesso ao Google Calendar.
                     </AuthError>
                 )}
-                <Button disabled={!hasAuthenticated} variant={'secondary'} type="submit">
+                <Button disabled={!hasAuthenticated} onClick={handleNextStep} variant={'secondary'} type="submit">
                     Próximo passo <ArrowRight />
                 </Button>
             </ConnectBox>
