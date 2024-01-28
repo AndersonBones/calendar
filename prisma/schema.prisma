@@ -18,6 +18,7 @@ model User {
   sessions      Session[]
   accounts      Account[]
   timeIntervals UserTimeInterval[]
+  Scheduling    Scheduling[]
 
   @@map("users")
 }
@@ -67,4 +68,18 @@ model VerificationToken {
 
   @@unique([identifier, token])
   @@map("sessions")
+}
+
+model Scheduling {
+  id           String   @id @default(uuid())
+  date         DateTime
+  name         String
+  email        String
+  observations String?
+  created_at   DateTime @default(now())
+
+  user    User   @relation(fields: [user_id], references: [id])
+  user_id String
+
+  @@map("schedulings")
 }

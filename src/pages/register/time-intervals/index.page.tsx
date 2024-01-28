@@ -83,7 +83,7 @@ export default function TimeInterval() {
 
 
 
-    const weekDays = getWeekDays() // obtem a ordem dos dias da semana
+    const weekDays = getWeekDays({short:false}) // obtem a ordem dos dias da semana
 
     
     return (

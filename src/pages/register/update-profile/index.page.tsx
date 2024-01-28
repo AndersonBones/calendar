@@ -33,7 +33,7 @@ export default function UpdateProfile(){
     const router = useRouter()
     
     const session = useSession() // escuta as sessões
-    console.log(session)
+   
     
     const handleUpdateProfile = async (data: UpdateProfile) => {
         await api.put('/users/profile',{
