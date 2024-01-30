@@ -3,8 +3,17 @@ import { Container, Hero, Preview } from './styles'
 import calendarImage from '../../assets/calendar.png'
 import Image from 'next/image'
 import { ClaimUserNameForm } from './components/ClaimUserNameForm/ClaimUserNameForm'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 
 export default function Home() {
+
+  const session = useSession()
+  const router = useRouter()
+
+  if(session.status == 'authenticated'){
+    router.push(`/schedule/${session.data.user.username}`)
+  }
   return (
     <Container>
       <Hero>

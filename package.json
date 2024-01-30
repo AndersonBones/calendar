@@ -14,6 +14,7 @@
     "@prisma/client": "^5.8.1",
     "@radix-ui/react-slot": "^1.0.2",
     "@stitches/react": "^1.2.8",
+    "@tanstack/react-query": "^5.17.19",
     "axios": "^1.6.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",

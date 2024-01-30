@@ -8,6 +8,7 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { api } from '@/lib/axios'
 import { AxiosError } from 'axios'
+import { useSession } from 'next-auth/react'
 
 
 const registerSchema = z.object({
@@ -28,6 +29,11 @@ const registerSchema = z.object({
 type TRegister = z.infer<typeof registerSchema>
 
 export default function Register() {
+
+  const session = useSession()
+  const router = useRouter()
+
+ 
   const {
     register,
     handleSubmit,
@@ -37,7 +43,7 @@ export default function Register() {
     resolver: zodResolver(registerSchema),
   })
 
-  const router = useRouter()
+  
 
   useEffect(() => {
     if (router.query.username) {
