@@ -18,12 +18,13 @@ export  function buildNextAuthOptions(req:NextApiRequest | NextPageContext['req'
           }
         },
 
+
         profile(profile:GoogleProfile){
           return {
             id:profile.sub,
             avatar_url:profile.picture,
             email:profile.email,
-            username:'',
+            username:profile.name,
             name:profile.name
           }
         }
@@ -45,6 +46,7 @@ export  function buildNextAuthOptions(req:NextApiRequest | NextPageContext['req'
           ...session,
           user
         }
+
       }
     }
   }

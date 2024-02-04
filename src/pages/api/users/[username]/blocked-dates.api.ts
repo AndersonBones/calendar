@@ -43,7 +43,8 @@ export default async function  handl(req: NextApiRequest, res: NextApiResponse) 
     const blockedDatesRaw = await prisma.$queryRaw`
         select *
         from schedulings s
-        where s.user_id = ${user.id} and date_format(s.date, "%Y-%m") = ${`${year}-${month}`}
+        where s.user_id = ${user.id} 
+        and DATE_FORMAT(s.date, "%Y-%m") = ${`${year}-${month}`}
 
     `
 

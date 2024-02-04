@@ -11,6 +11,7 @@ export default function Home() {
   const session = useSession()
   const router = useRouter()
 
+  console.log(session)
   if(session.status == 'authenticated'){
     router.push(`/schedule/${session.data.user.username}`)
   }

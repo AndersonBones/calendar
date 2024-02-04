@@ -58,6 +58,8 @@ export default function Register() {
         username: data.username
       })
 
+    
+
 
       await router.push('/register/connect-calendar') // redirect to connect calendar
 
